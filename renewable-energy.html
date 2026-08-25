@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewable Energy - LUPER AGRO LIMITED</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --agro-green-dark: #0d2e1a;
+            --agro-green-primary: #1a4a2e;
+            --agro-green-medium: #2a6a3e;
+            --gold-primary: #c9a84c;
+            --gold-light: #dbb95c;
+            --gold-pale: #f0e6c8;
+            --white: #ffffff;
+            --off-white: #f8f7f5;
+            --text-primary: #1a1715;
+            --text-secondary: #5a5550;
+            --font-primary: 'Inter', sans-serif;
+            --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-primary); color: var(--text-primary); background: var(--off-white); line-height: 1.7; padding-top: 76px; }
+        a { text-decoration: none; color: var(--agro-green-primary); transition: all 0.3s ease; }
+        .text-gold { color: var(--gold-primary) !important; }
+        
+        #mainNav {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 0.6rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(26, 74, 46, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+        }
+        .navbar-brand .brand-icon {
+            color: var(--gold-primary);
+            font-size: 1.8rem;
+            background: var(--gold-pale);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-brand .brand-highlight { color: var(--agro-green-primary); }
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.5rem 1.1rem;
+            transition: all 0.3s ease;
+            font-size: 0.92rem;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 60%; }
+        .nav-link:hover, .nav-link.active { color: var(--agro-green-primary); }
+        .cta-nav-btn { font-size: 0.85rem; padding: 0.6rem 1.8rem; border-radius: 50px; }
+        .btn-gold { background: var(--gold-primary); color: var(--white); padding: 0.9rem 2.5rem; border-radius: 50px; border: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn-gold:hover { background: #b8973a; color: var(--white); transform: translateY(-3px); }
+        .btn-primary { background: var(--agro-green-primary); color: var(--white); padding: 0.9rem 2.5rem; border-radius: 50px; border: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn-primary:hover { background: var(--agro-green-dark); color: var(--white); transform: translateY(-3px); }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 35px rgba(26, 74, 46, 0.12);
+            border-radius: 16px;
+            padding: 0.6rem;
+            background: rgba(255, 255, 255, 0.98);
+        }
+        .dropdown-item {
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .dropdown-item:hover { background: #e8f5ed; color: var(--agro-green-primary); }
+        .dropdown-divider { border-color: rgba(26, 74, 46, 0.06); }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--agro-green-dark) 0%, var(--agro-green-primary) 60%, var(--agro-green-medium) 100%);
+            padding: 5.5rem 0 4.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header h1 { color: var(--white); }
+        .page-header .breadcrumb { background: transparent; padding: 0; margin: 0; }
+        .page-header .breadcrumb-item a { color: rgba(255, 255, 255, 0.6); }
+        .page-header .breadcrumb-item.active { color: var(--gold-light); }
+        .page-header .breadcrumb-item::before { color: rgba(255, 255, 255, 0.3); }
+        
+        .section-padding { padding: 5rem 0; }
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-primary);
+            background: var(--gold-pale);
+            padding: 0.4rem 1.4rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+        }
+        .bg-cream { background: #faf6ef; }
+        .bg-dark { background: var(--agro-green-dark); }
+        
+        .feature-item {
+            display: flex;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(26, 74, 46, 0.08);
+            height: 100%;
+            border: 1px solid rgba(26, 74, 46, 0.04);
+        }
+        .feature-item:hover { transform: translateY(-4px); box-shadow: 0 5px 35px rgba(26, 74, 46, 0.12); }
+        .feature-item .feature-icon { flex-shrink: 0; width: 52px; height: 52px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-primary); font-size: 1.3rem; }
+        .feature-item h5 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+        .feature-item p { font-size: 0.9rem; margin: 0; }
+        
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 15px rgba(26, 74, 46, 0.08);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            height: 100%;
+            border: 1px solid rgba(26, 74, 46, 0.04);
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 70px rgba(26, 74, 46, 0.22); }
+        .service-card .icon-wrapper {
+            width: 72px;
+            height: 72px;
+            background: #e8f5ed;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--agro-green-primary);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .service-card:hover .icon-wrapper { background: var(--agro-green-primary); color: var(--white); transform: scale(1.05) rotate(-5deg); }
+        .service-card h4 { margin-bottom: 0.8rem; }
+        .service-card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.2rem; }
+        .service-card .card-link { font-weight: 600; color: var(--gold-primary); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; }
+        .service-card .card-link:hover { gap: 0.8rem; color: var(--agro-green-primary); }
+        
+        .crop-image-wrapper img { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; }
+        .badge-crop {
+            display: inline-block;
+            background: var(--gold-primary);
+            color: white;
+            padding: 0.5rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .crop-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .crop-feature-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(26, 74, 46, 0.08);
+            border-left: 3px solid var(--gold-primary);
+        }
+        .crop-feature-item .crop-feature-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gold-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+        }
+        .crop-feature-item h6 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0; }
+        .crop-feature-item p { font-size: 0.8rem; color: var(--text-secondary); margin: 0; }
+        
+        .footer {
+            background: var(--agro-green-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4.5rem 0 0;
+            position: relative;
+        }
+        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold-primary), var(--agro-green-medium), var(--gold-primary)); }
+        .footer .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--white); margin-bottom: 1rem; }
+        .footer .footer-brand .brand-icon { color: var(--gold-primary); font-size: 1.8rem; background: rgba(201, 168, 76, 0.15); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .footer .footer-brand .brand-highlight { color: var(--gold-primary); }
+        .footer .footer-desc { font-size: 0.95rem; color: rgba(255, 255, 255, 0.6); max-width: 350px; margin-bottom: 1.5rem; line-height: 1.8; }
+        .footer .footer-social { display: flex; gap: 0.8rem; }
+        .footer .footer-social a { width: 42px; height: 42px; background: rgba(255, 255, 255, 0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .footer .footer-social a:hover { background: var(--gold-primary); color: var(--white); transform: translateY(-3px); }
+        .footer h5 { color: var(--white); font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 700; }
+        .footer ul { list-style: none; padding: 0; margin: 0; }
+        .footer-links li, .footer-contact li { margin-bottom: 0.7rem; }
+        .footer-links a { color: rgba(255, 255, 255, 0.6); transition: all 0.3s ease; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--gold-primary); padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 0.8rem; align-items: flex-start; color: rgba(255, 255, 255, 0.6); font-size: 0.95rem; }
+        .footer-contact li i { color: var(--gold-primary); margin-top: 0.2rem; width: 18px; }
+        .footer-contact a { color: rgba(255, 255, 255, 0.6); }
+        .footer-contact a:hover { color: var(--gold-primary); }
+        .footer-bottom { margin-top: 3.5rem; padding: 1.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); margin: 0; }
+        .footer-legal { display: flex; gap: 0.8rem; align-items: center; }
+        .footer-legal a { color: rgba(255, 255, 255, 0.4); font-size: 0.85rem; }
+        .footer-legal a:hover { color: var(--gold-primary); }
+        .footer-legal .separator { color: rgba(255, 255, 255, 0.15); }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 999;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); color: var(--white); }
+        
+        @media (max-width: 768px) {
+            body { padding-top: 62px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            .page-header { padding: 3.5rem 0 2.5rem; }
+            .section-padding { padding: 3rem 0; }
+            .footer { padding: 3rem 0 0; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .whatsapp-float { width: 52px; height: 52px; font-size: 1.6rem; }
+            .crop-features-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+            .crop-image-wrapper img { height: 280px; }
+        }
+        @media (max-width: 480px) {
+            .crop-features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-icon"><i class="fas fa-seedling"></i></span>
+            <span class="brand-text">LUPER <span class="brand-highlight">AGRO</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="fertilizer.html">Organic Fertilizer</a></li>
+                        <li><a class="dropdown-item" href="crop-production.html">Crop Production</a></li>
+                        <li><a class="dropdown-item" href="animal-production.html">Animal Production</a></li>
+                        <li><a class="dropdown-item" href="renewable-energy.html">Renewable Energy</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="sustainability.html">Sustainability</a></li>
+                <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Insights</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-gold ms-lg-3 cta-nav-btn">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Renewable <span class="text-gold">Energy</span></h1>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem;">Sustainable energy solutions for modern agriculture.</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+                        <li class="breadcrumb-item active">Renewable Energy</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="crop-image-wrapper">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231a4a2e'/%3E%3Ctext x='300' y='180' font-size='40' text-anchor='middle' fill='%23c9a84c' font-family='Arial'%3E☀️%3C/text%3E%3Ctext x='300' y='240' font-size='24' text-anchor='middle' fill='%23ffffff' font-family='Arial'%3ERenewable Energy%3C/text%3E%3Ctext x='300' y='280' font-size='16' text-anchor='middle' fill='%23c9a84c' font-family='Arial'%3EPowering Agriculture Sustainably%3C/text%3E%3C/svg%3E" alt="Renewable Energy - LUPER AGRO">
+                </div>
+                <div class="mt-3 text-center">
+                    <span class="badge-crop"><i class="fas fa-solar-panel me-2"></i>Powering Agriculture Sustainably</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <span class="section-label">Renewable Energy</span>
+                <h2>Powering Agriculture <span class="text-gold">Sustainably</span></h2>
+                <p>LUPER AGRO LIMITED recognizes the critical role of renewable energy in sustainable agriculture. We provide innovative energy solutions that reduce environmental impact while supporting agricultural operations.</p>
+                <p>From solar energy systems to sustainable farm power solutions, we help farmers and agribusinesses reduce their carbon footprint and improve operational efficiency through clean energy.</p>
+                <div class="crop-features-grid">
+                    <div class="crop-feature-item">
+                        <div class="crop-feature-icon"><i class="fas fa-sun"></i></div>
+                        <div><h6>Solar Energy</h6><p>Clean solar power solutions</p></div>
+                    </div>
+                    <div class="crop-feature-item">
+                        <div class="crop-feature-icon"><i class="fas fa-leaf"></i></div>
+                        <div><h6>Sustainable</h6><p>Environmentally friendly power</p></div>
+                    </div>
+                    <div class="crop-feature-item">
+                        <div class="crop-feature-icon"><i class="fas fa-bolt"></i></div>
+                        <div><h6>Energy Efficiency</h6><p>Optimized power usage</p></div>
+                    </div>
+                    <div class="crop-feature-item">
+                        <div class="crop-feature-icon"><i class="fas fa-recycle"></i></div>
+                        <div><h6>Green Energy</h6><p>Reduced carbon footprint</p></div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="contact.html" class="btn btn-gold">Get Started <i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="https://wa.me/2348123705562?text=Hello%20LUPER%20AGRO%2C%20I%20want%20to%20learn%20more%20about%20your%20renewable%20energy%20solutions" class="btn btn-primary ms-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Energy Solutions -->
+<section class="section-padding bg-cream">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Solutions</span>
+            <h2>Energy Solutions for <span class="text-gold">Modern Agriculture</span></h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-solar-panel"></i></div>
+                    <h4>Solar Energy Systems</h4>
+                    <p>Solar power solutions for agricultural operations including water pumping, lighting, and equipment power.</p>
+                    <ul class="mt-2" style="list-style: none; padding: 0;">
+                        <li><i class="fas fa-check text-gold me-2"></i> Solar water pumping</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Farm lighting systems</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Equipment charging</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-bolt"></i></div>
+                    <h4>Agricultural Energy Systems</h4>
+                    <p>Comprehensive energy solutions tailored for agricultural operations and processing.</p>
+                    <ul class="mt-2" style="list-style: none; padding: 0;">
+                        <li><i class="fas fa-check text-gold me-2"></i> Energy efficiency systems</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Processing plant power</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Sustainable power solutions</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-leaf"></i></div>
+                    <h4>Sustainable Farm Power</h4>
+                    <p>Integrated renewable energy solutions for sustainable farm operations.</p>
+                    <ul class="mt-2" style="list-style: none; padding: 0;">
+                        <li><i class="fas fa-check text-gold me-2"></i> Green energy integration</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Carbon footprint reduction</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Sustainable operations</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-gauge-high"></i></div>
+                    <h4>Energy Efficiency</h4>
+                    <p>Optimizing energy use through efficient systems and sustainable practices.</p>
+                    <ul class="mt-2" style="list-style: none; padding: 0;">
+                        <li><i class="fas fa-check text-gold me-2"></i> Energy audits</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Efficiency improvements</li>
+                        <li><i class="fas fa-check text-gold me-2"></i> Cost reduction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Benefits</span>
+            <h2>Why Choose <span class="text-gold">Renewable Energy</span></h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-globe-africa"></i></div><div><h5>Environmental Protection</h5><p>Reduce carbon emissions and protect the environment through clean energy.</p></div></div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-coins"></i></div><div><h5>Cost Reduction</h5><p>Lower operational costs through energy efficiency and sustainable power.</p></div></div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-arrows-rotate"></i></div><div><h5>Sustainable Operations</h5><p>Support sustainable agricultural practices through renewable energy.</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section-padding bg-dark">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label" style="background: rgba(255,255,255,0.12); color: var(--gold-light); border-color: rgba(255,255,255,0.1);">Go Green</span>
+            <h2 style="color: var(--white);">Power Your Farm with <span class="text-gold">Clean Energy</span></h2>
+            <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2rem;">Contact us to learn more about our renewable energy solutions.</p>
+            <a href="contact.html" class="btn btn-gold btn-lg">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <span class="brand-icon"><i class="fas fa-seedling"></i></span>
+                    <span class="brand-text">LUPER <span class="brand-highlight">AGRO</span></span>
+                </div>
+                <p class="footer-desc">LUPER AGRO LIMITED is committed to advancing sustainable agriculture through innovative farming, organic fertilizer production, renewable energy and responsible livestock development.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5>Company</h5>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5>Services</h5>
+                <ul class="footer-links">
+                    <li><a href="fertilizer.html">Organic Fertilizer</a></li>
+                    <li><a href="crop-production.html">Crop Production</a></li>
+                    <li><a href="animal-production.html">Animal Production</a></li>
+                    <li><a href="renewable-energy.html">Renewable Energy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5>Contact</h5>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> No: 1 Lushakyaa Anja Street, Old GRA, Makurdi, Benue State, Nigeria.</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:08123705562">08123705562</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:luperagro@gmail.com">luperagro@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LUPER AGRO LIMITED. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

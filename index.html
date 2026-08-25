@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUPER AGRO LIMITED - Sustainable Agriculture & Agribusiness in Nigeria</title>
+    <meta name="description" content="LUPER AGRO LIMITED - Leading agricultural company in Nigeria specializing in organic fertilizer, crop production, animal production, and renewable energy.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="LUPER AGRO LIMITED - Sustainable Agriculture & Agribusiness in Nigeria">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/luper-agro-website/">
+    <meta property="og:description" content="LUPER AGRO LIMITED - Sustainable Agriculture & Agribusiness in Nigeria.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/general/favicon.ico">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --agro-green-dark: #0d2e1a;
+            --agro-green-primary: #1a4a2e;
+            --agro-green-medium: #2a6a3e;
+            --agro-green-light: #3a8a5e;
+            --agro-green-pale: #e8f5ed;
+            --earth-brown: #6d4c2a;
+            --earth-brown-light: #8d6e5a;
+            --earth-beige: #f5efe6;
+            --earth-cream: #faf6ef;
+            --gold-primary: #c9a84c;
+            --gold-light: #dbb95c;
+            --gold-pale: #f0e6c8;
+            --white: #ffffff;
+            --off-white: #f8f7f5;
+            --gray-light: #e9e5e0;
+            --gray-medium: #8a8580;
+            --text-primary: #1a1715;
+            --text-secondary: #5a5550;
+            --shadow-sm: 0 2px 15px rgba(26, 74, 46, 0.08);
+            --shadow-md: 0 5px 35px rgba(26, 74, 46, 0.12);
+            --shadow-lg: 0 10px 55px rgba(26, 74, 46, 0.18);
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+        
+        /* ===== Reset ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-primary); color: var(--text-primary); background: var(--off-white); line-height: 1.7; padding-top: 76px; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--agro-green-primary); transition: all 0.3s ease; }
+        a:hover { color: var(--agro-green-medium); }
+        
+        /* ===== Typography ===== */
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; color: var(--text-primary); }
+        h1 { font-size: 4rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
+        h2 { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; }
+        h3 { font-size: 2rem; font-weight: 700; }
+        h4 { font-size: 1.5rem; font-weight: 700; }
+        h5 { font-size: 1.2rem; font-weight: 600; }
+        p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+        .text-gold { color: var(--gold-primary) !important; }
+        
+        /* ===== Section Labels ===== */
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-primary);
+            background: var(--gold-pale);
+            padding: 0.4rem 1.4rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+        }
+        .section-label.light {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--gold-light);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .section-title { margin-bottom: 0.75rem; }
+        .section-subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem; }
+        
+        /* ===== Buttons ===== */
+        .btn {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: none;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: var(--agro-green-primary); color: var(--white); }
+        .btn-primary:hover { background: var(--agro-green-dark); color: var(--white); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .btn-gold { background: var(--gold-primary); color: var(--white); }
+        .btn-gold:hover { background: #b8973a; color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201, 168, 76, 0.35); }
+        .btn-outline-light { background: transparent; color: var(--white); border: 2px solid rgba(255, 255, 255, 0.4); }
+        .btn-outline-light:hover { background: var(--white); color: var(--agro-green-primary); transform: translateY(-3px); }
+        .btn-lg { padding: 1rem 3rem; font-size: 1.05rem; }
+        
+        /* ===== Navigation ===== */
+        #mainNav {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 0.6rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(26, 74, 46, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        #mainNav.scrolled { box-shadow: var(--shadow-sm); padding: 0.3rem 0; }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+        }
+        .navbar-brand .brand-icon {
+            color: var(--gold-primary);
+            font-size: 1.8rem;
+            background: var(--gold-pale);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-brand .brand-highlight { color: var(--agro-green-primary); }
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.5rem 1.1rem;
+            transition: all 0.3s ease;
+            font-size: 0.92rem;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 60%; }
+        .nav-link:hover, .nav-link.active { color: var(--agro-green-primary); }
+        .cta-nav-btn { font-size: 0.85rem; padding: 0.6rem 1.8rem; border-radius: 50px; }
+        
+        /* ===== Hero ===== */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--agro-green-dark) 0%, var(--agro-green-primary) 60%, var(--agro-green-medium) 100%);
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: radial-gradient(circle at 20% 50%, var(--gold-primary) 1px, transparent 1px), radial-gradient(circle at 80% 80%, var(--gold-primary) 1px, transparent 1px);
+            background-size: 60px 60px, 80px 80px;
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero-title { font-size: 4rem; font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        .hero-title .highlight { color: var(--gold-primary); position: relative; }
+        .hero-title .highlight::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 4px; background: var(--gold-primary); opacity: 0.3; border-radius: 2px; }
+        .hero-description { color: rgba(255, 255, 255, 0.85); font-size: 1.2rem; max-width: 540px; line-height: 1.8; margin-bottom: 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+        .hero-badge { margin-bottom: 1.5rem; }
+        .badge-agriculture {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            color: var(--gold-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .badge-agriculture i { color: var(--gold-primary); }
+        
+        .hero-stats { display: flex; gap: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+        .hero-stats .stat-item { color: var(--white); }
+        .hero-stats .stat-number { font-size: 2.8rem; font-weight: 800; color: var(--gold-primary); display: block; line-height: 1; }
+        .hero-stats .stat-label { font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); font-weight: 500; letter-spacing: 0.02em; }
+        
+        .hero-image-wrapper { position: relative; }
+        .hero-image { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); position: relative; z-index: 1; }
+        .hero-image-wrapper::before { content: ''; position: absolute; top: -20px; right: -20px; width: 100%; height: 100%; border: 2px solid rgba(201, 168, 76, 0.15); border-radius: var(--radius-lg); z-index: 0; }
+        
+        .floating-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 2;
+        }
+        .floating-badge .badge-icon { width: 48px; height: 48px; background: var(--agro-green-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--agro-green-primary); font-size: 1.3rem; }
+        .floating-badge .badge-title { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+        .floating-badge .badge-subtitle { font-size: 0.8rem; color: var(--text-secondary); font-weight: 400; }
+        
+        /* ===== Sections ===== */
+        .section-padding { padding: 5rem 0; }
+        .bg-cream { background: var(--earth-cream); }
+        .bg-dark { background: var(--agro-green-dark); }
+        .bg-dark .section-title, .bg-dark h3, .bg-dark p { color: var(--white); }
+        .bg-dark .section-label { background: rgba(255, 255, 255, 0.12); color: var(--gold-light); border-color: rgba(255, 255, 255, 0.1); }
+        
+        /* ===== Service Cards ===== */
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            height: 100%;
+            border: 1px solid rgba(26, 74, 46, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold-primary), var(--agro-green-primary)); opacity: 0; transition: all 0.3s ease; }
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 70px rgba(26, 74, 46, 0.22); }
+        .service-card .icon-wrapper { width: 72px; height: 72px; background: var(--agro-green-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.8rem; color: var(--agro-green-primary); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .service-card:hover .icon-wrapper { background: var(--agro-green-primary); color: var(--white); transform: scale(1.05) rotate(-5deg); }
+        .service-card h4 { margin-bottom: 0.8rem; }
+        .service-card p { font-size: 0.95rem; margin-bottom: 1.2rem; }
+        .service-card .card-link { font-weight: 600; color: var(--gold-primary); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; }
+        .service-card .card-link:hover { gap: 0.8rem; color: var(--agro-green-primary); }
+        
+        /* ===== Feature Items ===== */
+        .feature-item {
+            display: flex;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            border: 1px solid rgba(26, 74, 46, 0.04);
+        }
+        .feature-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .feature-item .feature-icon { flex-shrink: 0; width: 52px; height: 52px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-primary); font-size: 1.3rem; transition: all 0.3s ease; }
+        .feature-item:hover .feature-icon { background: var(--agro-green-primary); color: var(--white); }
+        .feature-item h5 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+        .feature-item p { font-size: 0.9rem; margin: 0; }
+        
+        /* ===== Stats ===== */
+        .stat-card { text-align: center; padding: 2.5rem 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-md); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.08); }
+        .stat-card .stat-number { font-size: 3.2rem; font-weight: 800; color: var(--gold-primary); display: block; line-height: 1; }
+        .stat-card .stat-label { font-size: 1rem; color: rgba(255, 255, 255, 0.75); margin-top: 0.5rem; font-weight: 500; }
+        
+        /* ===== WhatsApp Float ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 999;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); color: var(--white); box-shadow: 0 8px 40px rgba(37, 211, 102, 0.5); }
+        
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--agro-green-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4.5rem 0 0;
+            position: relative;
+        }
+        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold-primary), var(--agro-green-medium), var(--gold-primary)); }
+        .footer .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--white); margin-bottom: 1rem; }
+        .footer .footer-brand .brand-icon { color: var(--gold-primary); font-size: 1.8rem; background: rgba(201, 168, 76, 0.15); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .footer .footer-brand .brand-highlight { color: var(--gold-primary); }
+        .footer .footer-desc { font-size: 0.95rem; color: rgba(255, 255, 255, 0.6); max-width: 350px; margin-bottom: 1.5rem; line-height: 1.8; }
+        .footer .footer-social { display: flex; gap: 0.8rem; }
+        .footer .footer-social a { width: 42px; height: 42px; background: rgba(255, 255, 255, 0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .footer .footer-social a:hover { background: var(--gold-primary); color: var(--white); transform: translateY(-3px); border-color: var(--gold-primary); }
+        .footer h5 { color: var(--white); font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 700; }
+        .footer ul { list-style: none; padding: 0; margin: 0; }
+        .footer-links li, .footer-contact li { margin-bottom: 0.7rem; }
+        .footer-links a { color: rgba(255, 255, 255, 0.6); transition: all 0.3s ease; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--gold-primary); padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 0.8rem; align-items: flex-start; color: rgba(255, 255, 255, 0.6); font-size: 0.95rem; }
+        .footer-contact li i { color: var(--gold-primary); margin-top: 0.2rem; width: 18px; }
+        .footer-contact a { color: rgba(255, 255, 255, 0.6); }
+        .footer-contact a:hover { color: var(--gold-primary); }
+        .footer-bottom { margin-top: 3.5rem; padding: 1.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); margin: 0; }
+        .footer-legal { display: flex; gap: 0.8rem; align-items: center; }
+        .footer-legal a { color: rgba(255, 255, 255, 0.4); font-size: 0.85rem; }
+        .footer-legal a:hover { color: var(--gold-primary); }
+        .footer-legal .separator { color: rgba(255, 255, 255, 0.15); }
+        
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            h1, .hero-title { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .hero { min-height: auto; padding: 4rem 0; }
+            .hero-stats { gap: 2rem; flex-wrap: wrap; }
+            .hero-stats .stat-number { font-size: 2rem; }
+            .hero-image-wrapper::before { display: none; }
+            .floating-badge { display: none; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 62px; }
+            h1, .hero-title { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            .hero { padding: 3rem 0; text-align: center; }
+            .hero-description { font-size: 1rem; max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+            .hero-stats .stat-item { flex: 0 0 30%; }
+            .hero-stats .stat-number { font-size: 1.6rem; }
+            .hero-stats .stat-label { font-size: 0.7rem; }
+            .service-card { padding: 1.8rem 1.5rem; }
+            .service-card .icon-wrapper { width: 60px; height: 60px; font-size: 1.5rem; }
+            .feature-item { padding: 1.2rem; }
+            .feature-item .feature-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+            .footer { padding: 3rem 0 0; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-legal { flex-wrap: wrap; justify-content: center; }
+            .whatsapp-float { width: 52px; height: 52px; font-size: 1.6rem; bottom: 1.5rem; right: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            h1, .hero-title { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            .hero-stats .stat-item { flex: 0 0 45%; }
+            .hero-stats .stat-number { font-size: 1.4rem; }
+            .btn { padding: 0.7rem 1.8rem; font-size: 0.85rem; }
+            .btn-lg { padding: 0.8rem 2rem; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white" id="mainNav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-icon"><i class="fas fa-seedling"></i></span>
+            <span class="brand-text">LUPER <span class="brand-highlight">AGRO</span></span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="fertilizer.html">Organic Fertilizer</a></li>
+                        <li><a class="dropdown-item" href="crop-production.html">Crop Production</a></li>
+                        <li><a class="dropdown-item" href="animal-production.html">Animal Production</a></li>
+                        <li><a class="dropdown-item" href="renewable-energy.html">Renewable Energy</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="sustainability.html">Sustainability</a></li>
+                <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Insights</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-gold ms-lg-3 cta-nav-btn">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-badge">
+                    <span class="badge-agriculture">
+                        <i class="fas fa-tractor me-2"></i>Nigerian Agriculture Since 2020
+                    </span>
+                </div>
+                <h1 class="hero-title">
+                    Growing Today.<br>
+                    <span class="highlight">Sustaining Tomorrow.</span>
+                </h1>
+                <p class="hero-description">
+                    LUPER AGRO LIMITED is committed to advancing sustainable agriculture through innovative farming, organic fertilizer production, renewable energy and responsible livestock development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="services.html" class="btn btn-gold btn-lg">
+                        Explore Our Services <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-light btn-lg">
+                        Contact LUPER AGRO
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Sustainable Agriculture</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Organic Solutions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Community Impact</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="hero-image-wrapper">
+                    <img src="assets/images/hero/hero-main.jpg" alt="LUPER AGRO - Sustainable Agriculture in Nigeria" class="hero-image">
+                    <div class="floating-badge">
+                        <div class="badge-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="badge-content">
+                            <span class="badge-title">Agriculture in Nigeria</span>
+                            <span class="badge-subtitle">Since 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <span class="section-label">About LUPER AGRO</span>
+                <h2 class="section-title">Driving Agricultural <br><span class="text-gold">Excellence in Nigeria</span></h2>
+                <p>LUPER AGRO LIMITED is a modern agricultural company dedicated to transforming Nigeria's agricultural landscape through sustainable practices, innovation, and a deep commitment to environmental responsibility.</p>
+                <p>From organic fertilizer production to renewable energy solutions, we work alongside farmers, communities, and partners to build a more sustainable and food-secure future.</p>
+                <a href="about.html" class="btn btn-primary mt-2">Discover Our Story <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+                            <div>
+                                <h5>Sustainable Agriculture</h5>
+                                <p>Eco-friendly farming practices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-flask"></i></div>
+                            <div>
+                                <h5>Organic Solutions</h5>
+                                <p>Natural fertilizer production</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-solar-panel"></i></div>
+                            <div>
+                                <h5>Renewable Energy</h5>
+                                <p>Sustainable farm power</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                            <div>
+                                <h5>Community Impact</h5>
+                                <p>Supporting local farmers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section-padding bg-cream">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Our Services</span>
+            <h2 class="section-title">What We <span class="text-gold">Do</span></h2>
+            <p class="section-subtitle">LUPER AGRO LIMITED delivers comprehensive agricultural solutions across the entire value chain.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-seedling"></i></div>
+                    <h4>Organic Fertilizer</h4>
+                    <p>Production and promotion of organic soil-enhancing solutions for sustainable agriculture.</p>
+                    <a href="fertilizer.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-wheat-awn"></i></div>
+                    <h4>Crop Production</h4>
+                    <p>Sustainable cultivation of crops using responsible agricultural practices.</p>
+                    <a href="crop-production.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-cow"></i></div>
+                    <h4>Animal Production</h4>
+                    <p>Responsible livestock production and management with focus on animal welfare.</p>
+                    <a href="animal-production.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="icon-wrapper"><i class="fas fa-solar-panel"></i></div>
+                    <h4>Renewable Energy</h4>
+                    <p>Agricultural and renewable-energy solutions that support sustainable operations.</p>
+                    <a href="renewable-energy.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="services.html" class="btn btn-gold">View All Services <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">Why Partner With <span class="text-gold">LUPER AGRO</span></h2>
+            <p class="section-subtitle">We bring together sustainability, innovation, and local expertise to deliver exceptional agricultural solutions.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <div>
+                        <h5>Sustainable Agriculture</h5>
+                        <p>Committed to environmentally responsible farming practices that protect our land for future generations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <div>
+                        <h5>Quality Driven</h5>
+                        <p>We maintain the highest standards in everything we do, from production to customer service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div>
+                        <h5>Innovative Solutions</h5>
+                        <p>Embracing modern agricultural techniques and technologies to solve farming challenges.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-globe-africa"></i></div>
+                    <div>
+                        <h5>Local Agricultural Knowledge</h5>
+                        <p>Deep understanding of Nigerian agricultural conditions, challenges, and opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                    <div>
+                        <h5>Long-Term Partnerships</h5>
+                        <p>We build lasting relationships with our clients, partners, and communities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h5>Environmental Responsibility</h5>
+                        <p>Dedicated to reducing environmental impact and promoting ecological balance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="section-padding bg-dark">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Sustainable Agriculture</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Organic Solutions</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Modern Farming</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Community Impact</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="section-label light">Partner With Us</span>
+                <h2 style="color: var(--white);">Ready to Grow <span class="text-gold">Together?</span></h2>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px;">Join us in building a sustainable agricultural future for Nigeria. We're here to support your farming and agribusiness needs.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="contact.html" class="btn btn-gold btn-lg">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/2348123705562?text=Hello%20LUPER%20AGRO%20LIMITED%2C%20I%20would%20like%20to%20make%20an%20enquiry%20about%20your%20agricultural%20services." 
+   class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <span class="brand-icon"><i class="fas fa-seedling"></i></span>
+                    <span class="brand-text">LUPER <span class="brand-highlight">AGRO</span></span>
+                </div>
+                <p class="footer-desc">LUPER AGRO LIMITED is committed to advancing sustainable agriculture through innovative farming, organic fertilizer production, renewable energy and responsible livestock development.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5>Company</h5>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5>Services</h5>
+                <ul class="footer-links">
+                    <li><a href="fertilizer.html">Organic Fertilizer</a></li>
+                    <li><a href="crop-production.html">Crop Production</a></li>
+                    <li><a href="animal-production.html">Animal Production</a></li>
+                    <li><a href="renewable-energy.html">Renewable Energy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5>Contact</h5>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> No: 1 Lushakyaa Anja Street, Old GRA, Makurdi, Benue State, Nigeria.</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:08123705562">08123705562</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:luperagro@gmail.com">luperagro@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LUPER AGRO LIMITED. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Sticky Navbar
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('mainNav');
+    if (window.pageYOffset > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+</script>
+
+</body>
+</html>
